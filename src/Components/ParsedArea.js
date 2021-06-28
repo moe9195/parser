@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import {
   makeStyles,
   Typography,
-  TextField
+  TextField,
+  Button,
 } from '@material-ui/core';
 
 const languageData = {
@@ -18,6 +20,8 @@ const languageData = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    display: 'flex',
+    flexDirection: 'column',
   },
   textField: {
     width: '100%',
@@ -27,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     fontSize: '14px'
+  },
+  copyButton: {
+    margin: theme.spacing(1)
   }
 }))
 
@@ -56,6 +63,7 @@ const toArray = (str, numInQuotes, doubleQuote, space) => {
 
 const ParsedArea = ({ input, language, numInQuotes, doubleQuote, space }) => {
   const classes = useStyles();
+  const output = language === 'csv' ? toCSV(input, space) : toArray(input, numInQuotes, doubleQuote, space)
 
   return (
     <div className={classes.root}>
@@ -66,11 +74,20 @@ const ParsedArea = ({ input, language, numInQuotes, doubleQuote, space }) => {
           className={classes.textField}
           multiline
           disabled
-          rows={12}
-          rowsMax={12}
-          value={language === 'csv' ? toCSV(input, space) : toArray(input, numInQuotes, doubleQuote, space) }
+          rows={11}
+          rowsMax={11}
+          value={output}
           variant="outlined"
-        />
+      />
+      <Button
+        variant="contained"
+        color="default"
+        className={classes.copyButton}
+        startIcon={<AssignmentIcon />}
+        onClick={() => {navigator.clipboard.writeText(output)}}
+      >
+        Copy
+      </Button>
     </div>
   );
 }
