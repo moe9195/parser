@@ -9,15 +9,10 @@ import {
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignContent: 'center',
-    flexDirection: 'row',
-  },
   iconButton: {
     position: 'fixed',
     right: 0,
+    padding: theme.spacing(2),
   },
 }))
 
