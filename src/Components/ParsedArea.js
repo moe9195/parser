@@ -5,7 +5,6 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import {
   makeStyles,
   Typography,
-  TextField,
   Button,
 } from '@material-ui/core';
 
@@ -22,12 +21,19 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
+    height: '100%',
   },
   textField: {
-    width: '100%',
-    overflow: 'auto',
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    overflowWrap: 'break-word',
+    height: '100%',
     fontSize: '14px',
     fontFamily: '"Fira code", "Fira Mono", monospace',
+    border: '1px solid rgba(255, 255, 255, 0.12)',
+    borderRadius: theme.spacing(0.5),
+    padding: theme.spacing(1),
+    margin: theme.spacing(1)
   },
   description: {
     fontSize: '14px'
@@ -39,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 const isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n);
 
-const toCSV = (str, space) => space === "true" ? str.split("\n").join(', ') : str.split("\n")
+const toCSV = (str, space) => space === "true" ? str.split("\n").join(', ') : str.split("\n").join(',')
 
 const toArray = (str, numInQuotes, doubleQuote, space) => {
   if (str === "") return ""
@@ -70,15 +76,7 @@ const ParsedArea = ({ input, language, numInQuotes, doubleQuote, space }) => {
       <Typography variant="overline" className={classes.description}>
         {languageData[language]['title']}
       </Typography>
-      <TextField
-          className={classes.textField}
-          multiline
-          disabled
-          rows={11}
-          rowsMax={11}
-          value={output}
-          variant="outlined"
-      />
+      <div className={classes.textField}>{output}</div>
       <Button
         variant="contained"
         color="default"
