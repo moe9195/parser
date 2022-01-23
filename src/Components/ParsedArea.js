@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     fontSize: '14px',
     fontFamily: '"Fira code", "Fira Mono", monospace',
-    border: '1px solid rgba(255, 255, 255, 0.12)',
+    border: '1px solid',
+    borderColor: theme.palette.action.disabled,
     borderRadius: theme.spacing(0.5),
     padding: theme.spacing(1),
     margin: theme.spacing(1)
