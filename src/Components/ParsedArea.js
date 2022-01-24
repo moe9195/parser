@@ -57,7 +57,7 @@ const toArray = (str, numInQuotes, doubleQuote, space, compact) => {
   arr.forEach((n) => {
     if (compact === "true" && n.length === 0) return;
     let val = isNumeric(n) && (numInQuotes === "false") ? parseFloat(n) : doubleQuote === "true" ? `"${n}"` : `'${n}'`
-    if (space == "true") {
+    if (space === "true") {
       parsed += `${val}, `
     } else {
       parsed += `${val},`

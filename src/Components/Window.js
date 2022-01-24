@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const Window = ({ }) => {
+const Window = () => {
   const classes = useStyles();
   const [numInQuotes, setNumInQuotes] = useState('false');
   const [doubleQuote, setDoubleQuote] = useState('false');
