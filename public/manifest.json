@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Online list parser",
+  "name": "Convert any list into an array or comma separated values",
   "icons": [
     {
       "src": "favicon.ico",
