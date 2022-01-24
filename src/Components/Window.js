@@ -47,6 +47,7 @@ const Window = ({ }) => {
   const [numInQuotes, setNumInQuotes] = useState('false');
   const [doubleQuote, setDoubleQuote] = useState('false');
   const [space, setSpace] = useState('false');
+  const [compact, setCompact] = useState('false');
   const [input, setInput] = useState('');
   const [count, setCount] = useState({
     lines: 0,
@@ -84,6 +85,8 @@ const Window = ({ }) => {
               setDoubleQuote={setDoubleQuote}
               space={space}
               setSpace={setSpace}
+              compact={compact}
+              setCompact={setCompact}
               resetData={resetData}
             />
           </Paper>
@@ -98,6 +101,7 @@ const Window = ({ }) => {
                   numInQuotes={numInQuotes}
                   doubleQuote={doubleQuote}
                   space={space}
+                  compact={compact}
                   />
               </Paper>
             ))

@@ -44,21 +44,24 @@ const useStyles = makeStyles((theme) => ({
 
 const isNumeric = n => !isNaN(parseFloat(n)) && isFinite(n);
 
-const toCSV = (str, space) => space === "true" ? str.split("\n").join(', ') : str.split("\n").join(',')
+const toCSV = (str, space, compact) => {
+  let arr = compact === "true" ? str.split("\n").filter(n => n.length > 0) : str.split("\n");
+  return space === "true" ? arr.join(', ') : arr.join(',');
+}
 
-const toArray = (str, numInQuotes, doubleQuote, space) => {
+const toArray = (str, numInQuotes, doubleQuote, space, compact) => {
   if (str === "") return ""
   const arr = str.split("\n");
   const last = arr.pop();
   let parsed = '[';
   arr.forEach((n) => {
+    if (compact === "true" && n.length === 0) return;
     let val = isNumeric(n) && (numInQuotes === "false") ? parseFloat(n) : doubleQuote === "true" ? `"${n}"` : `'${n}'`
     if (space == "true") {
       parsed += `${val}, `
     } else {
       parsed += `${val},`
     }
-      
   })
   parsed += `${isNumeric(last) && (numInQuotes === "false") ? parseFloat(last) : doubleQuote === "true" ? `"${last}"` : `'${last}'`}]`;
 
@@ -66,9 +69,9 @@ const toArray = (str, numInQuotes, doubleQuote, space) => {
 }
 
 
-const ParsedArea = ({ input, language, numInQuotes, doubleQuote, space }) => {
+const ParsedArea = ({ input, language, numInQuotes, doubleQuote, space, compact }) => {
   const classes = useStyles();
-  const output = language === 'csv' ? toCSV(input, space) : toArray(input, numInQuotes, doubleQuote, space)
+  const output = language === 'csv' ? toCSV(input, space, compact) : toArray(input, numInQuotes, doubleQuote, space, compact)
 
   return (
     <div className={classes.root}>

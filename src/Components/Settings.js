@@ -11,7 +11,6 @@ import {
 } from '@material-ui/lab';
 
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '40%',
@@ -36,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const Settings = ({ numInQuotes, setNumInQuotes, doubleQuote, setDoubleQuote, space, setSpace, resetData }) => {
+const Settings = ({ numInQuotes, setNumInQuotes, doubleQuote, setDoubleQuote, space, setSpace, compact, setCompact, resetData }) => {
   const classes = useStyles();
 
   const handleNumInQuotes = (event, newNumInQuotes) => {
@@ -49,6 +48,10 @@ const Settings = ({ numInQuotes, setNumInQuotes, doubleQuote, setDoubleQuote, sp
 
   const handleSpace = (event, newSpace) => {
     setSpace(newSpace);
+  };
+
+  const handleCompact = (event, newCompact) => {
+    setCompact(newCompact);
   };
 
   return (
@@ -65,7 +68,6 @@ const Settings = ({ numInQuotes, setNumInQuotes, doubleQuote, setDoubleQuote, sp
         <ToggleButton className={classes.button} value="false">Single</ToggleButton>
         <ToggleButton className={classes.button} value="true">Double</ToggleButton>
       </ToggleButtonGroup>
-
       <Typography variant="overline" className={classes.description}>
         numbers in quotes?
       </Typography>
@@ -78,7 +80,6 @@ const Settings = ({ numInQuotes, setNumInQuotes, doubleQuote, setDoubleQuote, sp
         <ToggleButton className={classes.button} value="false">No</ToggleButton>
         <ToggleButton className={classes.button} value="true">Yes</ToggleButton>
       </ToggleButtonGroup>
-
       <Typography variant="overline" className={classes.description}>
         spaced values?
       </Typography>
@@ -91,6 +92,20 @@ const Settings = ({ numInQuotes, setNumInQuotes, doubleQuote, setDoubleQuote, sp
         <ToggleButton className={classes.button} value="false">No</ToggleButton>
         <ToggleButton className={classes.button} value="true">Yes</ToggleButton>
       </ToggleButtonGroup>
+
+      <Typography variant="overline" className={classes.description}>
+        remove empty values?
+      </Typography>
+      <ToggleButtonGroup className={classes.buttonGroup}
+        value={compact}
+        exclusive
+        onChange={handleCompact}
+        aria-label="compact selector buttons"
+      >
+        <ToggleButton className={classes.button} value="false">No</ToggleButton>
+        <ToggleButton className={classes.button} value="true">Yes</ToggleButton>
+      </ToggleButtonGroup>
+
 
       <Button
         variant="contained"
