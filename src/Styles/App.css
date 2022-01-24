@@ -1,3 +1,27 @@
 textarea {
   outline: 0;
 }
+
+.cm-editor, .cm-gutter, .cm-gutterElement, .cm-activeLineGutter {
+  background-color: #424242!important;
+  caret-color: #ffffff!important;
+  color: rgba(255, 255, 255, 0.7)!important;
+}
+
+.cm-activeLine {
+  background-color: #303030!important;
+}
+
+.cm-gutters {
+  color: rgba(255, 255, 255, 0.7)!important;
+  background-color: red;
+}
+
+.cm-cursorLayer, .cm-content {
+  caret-color: white!important;
+}
+
+.cm-gutters {
+  border-right: solid 1px #303030 !important;
+  margin-right: 5px
+}

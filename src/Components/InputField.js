@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import Editor from 'react-simple-code-editor';
-import { highlight, languages } from 'prismjs/components/prism-core';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
+import React from 'react';
+import CodeMirror from '@uiw/react-codemirror';
 import {
   makeStyles,
 } from '@material-ui/core';
@@ -10,12 +7,6 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-  },
-  containerArea: {
-    tabSize: '4ch',
-    maxHeight: '400px',
-    overflow: 'auto',
-    margin: '1.67em 0',
   },
 }))
 
@@ -37,18 +28,13 @@ const InputField = ({ setCount, input, setInput }) => {
 
   return (
     <div className={classes.root}>
-      <Editor
-        value={input}
-        onValueChange={input => updateValues(input)}
-        highlight={input => highlight(input, languages.js)}
+      <CodeMirror
         placeholder="Your text list here..."
-        padding={10}
-        style={{
-          fontFamily: '"Fira code", "Fira Mono", monospace',
-          border: 'hidden',
-          fontSize: 14,
-          overflow: 'auto',
-          height: '720px',
+        value={input}
+        theme='light'
+        height="720px"
+        onChange={(value, viewUpdate) => {
+          updateValues(value)
         }}
       />
     </div>

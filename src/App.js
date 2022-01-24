@@ -4,22 +4,11 @@ import DarkModeToggle from './Components/DarkModeToggle';
 import Window from './Components/Window';
 import {
   createMuiTheme,
-  makeStyles,
   ThemeProvider,
   CssBaseline
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignContent: 'center',
-    flexDirection: 'row',
-  },
-}))
-
 function App() {
-  const classes = useStyles()
   const [darkMode, setDarkMode] = useState(true);
 
   const theme = createMuiTheme({

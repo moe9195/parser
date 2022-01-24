@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
+import React from 'react';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import {
   makeStyles,
