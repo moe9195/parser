@@ -20,12 +20,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <header>
+      {/* <header>
         <DarkModeToggle
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
-      </header>
+      </header> */}
 
       <Window/>
     </ThemeProvider>
