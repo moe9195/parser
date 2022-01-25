@@ -18,10 +18,11 @@ textarea {
 }
 
 .cm-cursorLayer, .cm-content {
-  caret-color: white!important;
+  margin-right: 4px;
+  caret-color: #ffffff!important;
 }
 
 .cm-gutters {
-  border-right: solid 1px #303030 !important;
+  border-right: solid 0px #303030 !important;
   margin-right: 5px
 }

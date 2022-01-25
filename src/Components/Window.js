@@ -67,7 +67,7 @@ const Window = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
-        <Grid item xs={5}>
+        <Grid item xs={12} md={5}>
           <Paper className={classes.column}>
             <InputField
               setCount={setCount}
@@ -76,7 +76,7 @@ const Window = () => {
             />
           </Paper>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={12} md={2}>
           <Paper className={classes.column}>
             <Settings
               numInQuotes={numInQuotes}
@@ -91,7 +91,7 @@ const Window = () => {
             />
           </Paper>
         </Grid>
-        <Grid className={classes.column} item xs={5}>
+        <Grid className={classes.column} item xs={12} md={5}>
           {
             ['csv', 'arr'].map((language) => (
               <Paper className={classes.result}>

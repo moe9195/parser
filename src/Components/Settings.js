@@ -28,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
     width: '50%'
   },
   description: {
-    fontSize: '14px'
+    fontSize: '14px',
+    textAlign: 'center'
   },
   deleteButton: {
     width: '75%'
